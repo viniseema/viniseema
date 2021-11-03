@@ -1,0 +1,21 @@
+import logging
+logging.getLogger("scapy.runtime").setLevel(logging.Error)
+from scapy.all import*
+dstip=raw_input("Enter the IP address for which the status has to be changed)
+icmp=ICMP()
+icmp.type=8
+icmp.code=0
+ip=IP()
+ip.dst=dstip
+p=sr1(ip/icmp,timeout=5,verbose=0)
+if(p):
+       print"Layer 3 status is up"
+       print"Layer 3 status is down"
+
+~
+~
+
+
+ Enter the IP address for which the status has to be changed
+192.168.1.100
+Layer 3 status is up
